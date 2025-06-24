@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luv Patel - Cloud/Data Engineer Portfolio</title>
+    <meta name="description" content="Aspiring Cloud/Data Engineer with expertise in AWS, Python, and Machine Learning. Experience with ISRO and SMU.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 1rem;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        #about {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Education Section */
+        .education-item {
+            background: white;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #3b82f6;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .school-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .degree {
+            font-size: 1.1rem;
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        .gpa {
+            font-weight: 600;
+            color: #3b82f6;
+        }
+
+        .duration {
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cert-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 3px solid #3b82f6;
+        }
+
+        .cert-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .skill-category h3 {
+            color: #3b82f6;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: white;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #3b82f6;
+        }
+
+        .experience-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            color: #3b82f6;
+            font-weight: 500;
+        }
+
+        .job-duration {
+            color: #888;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .job-description {
+            margin-top: 1rem;
+        }
+
+        .job-description li {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .project-duration {
+            color: #3b82f6;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #f8f9fa;
+            color: #3b82f6;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid #e9ecef;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .education-header {
+                flex-direction: column;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 2rem 0;
+            }
+
+            #about {
+                padding: 2rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <img src="https://media.licdn.com/media/AAYQAQSOAAgAAQAAAAAAAB-zrMZEDXI2T62PSuT6kpB6qg.png" alt="Luv Patel" class="profile-img">
+            <h1>Luv Patel</h1>
+            <p class="title">Aspiring Cloud/Data Engineer | AI & ML Specialist</p>
+            <div class="contact-info">
+                <a href="mailto:luvp@smu.edu">📧 luvp@smu.edu</a>
+                <a href="https://www.linkedin.com/in/luvpatel2001/" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/parzival5880" target="_blank">🔗 GitHub</a>
+                <a href="tel:+14696909612">📱 +1-469-690-9612</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content fade-in">
+                <p>Aspiring Cloud/Data Engineer with a strong foundation in data science and IT infrastructure. Experienced in deploying automation scripts and managing IT systems, with hands-on exposure to AWS and Docker. Successfully improved data processing efficiency by 35% through automated pipeline design.</p>
+                <br>
+                <p>Currently pursuing my Master's in Computer Science with specialization in AI & ML at Southern Methodist University. Eager to leverage technical skills and cloud platform knowledge to optimize cloud-based solutions and support enterprise growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item fade-in">
+                <div class="education-header">
+                    <div>
+                        <div class="school-name">Southern Methodist University</div>
+                        <div class="degree">Master's, Computer Science, Specialization in AI & ML</div>
+                        <div class="gpa">GPA: 3.83/4.0</div>
+                    </div>
+                    <div class="duration">Aug 2023 - May 2025</div>
+                </div>
+            </div>
+
+            <div class="education-item fade-in">
+                <div class="education-header">
+                    <div>
+                        <div class="school-name">Dharmsinh Desai University</div>
+                        <div class="degree">Bachelor's, Computer Science</div>
+                        <div class="gpa">GPA: 3.36/4.0</div>
+                    </div>
+                    <div class="duration">Jul 2019 - May 2023</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3>Languages & Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">R Programming</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">React</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Data Science Libraries</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Scikit-Learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">XGBoost</span>
+                        <span class="skill-tag">Spark</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Data Analysis & Visualization</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Plotly</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Excel</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>MLOps & Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">MLflow</span>
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Airflow</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">AWS EC2</span>
+                        <span class="skill-tag">AWS S3</span>
+                        <span class="skill-tag">AWS RDS</span>
+                        <span class="skill-tag">AWS Lambda</span>
+                        <span class="skill-tag">AWS Redshift</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Business Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Customer Service</span>
+                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag">Analytic Reasoning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div class="job-title">Research Assistant</div>
+                    <div class="company">Southern Methodist University</div>
+                    <div class="job-duration">Jan 2025 - Present | Dallas, TX</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Engineered structured datasets from noisy Amazon product reviews and historical stock data using Python (pandas, NumPy) and SQL, reducing preprocessing time by 35% and improving model training throughput</li>
+                        <li>Trained and optimized deep learning models for stock price prediction using PyTorch and TensorFlow, applying regularization, dropout, and time-series analysis techniques, which led to a 12% increase in prediction accuracy</li>
+                        <li>Deployed data pipelines using Apache Airflow and stored experiment artifacts with MLflow on Databricks, while leveraging AWS S3 and Docker to enable reproducible and scalable model retraining</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div class="job-title">Teaching Assistant</div>
+                    <div class="company">Southern Methodist University</div>
+                    <div class="job-duration">Jul 2024 - Present | Dallas, TX</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Conducted interactive tutorials and labs for graduate-level data mining, integrating Scikit-learn, R, and SQL-based exercises that improved students' applied ML understanding by over 40%</li>
+                        <li>Designed and graded assignments focused on classification, clustering, and PCA, using real-world datasets and visualization libraries like Seaborn and Matplotlib to enhance data storytelling concepts</li>
+                        <li>Mentored 40+ students in applying machine learning to business cases, incorporating Jupyter Notebooks, reproducibility tools like Git, and shared best practices for model validation and performance tuning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div class="job-title">Data Analyst Intern</div>
+                    <div class="company">Indian Space Research Organization (ISRO)</div>
+                    <div class="job-duration">Dec 2022 - Apr 2023 | Ahmedabad, India</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Developed end-to-end data pipelines for processing satellite-based geospatial datasets using Python, Shell scripting, and PostgreSQL, enabling seamless ingestion and transformation for oceanographic analysis</li>
+                        <li>Programmed coastal storm surge prediction models using XGBoost and Keras, combining meteorological and spatial data, improving forecasting precision for critical zones by 15%</li>
+                        <li>Delivered insights through interactive dashboards built in Power BI, showcasing flood pattern trends and predictive simulations to help decision-makers mitigate coastal impact during cyclones</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div class="job-title">IT Systems Associate - Infrastructure & Automation</div>
+                    <div class="company">Patel Constructions</div>
+                    <div class="job-duration">May 2021 - Oct 2022 | Gujarat, India</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Developed and deployed automation scripts using Bash/PowerShell to streamline system processes, backups, and compliance log management, enhancing audit readiness and reducing manual intervention</li>
+                        <li>Managed and monitored local IT infrastructure, ensuring operational continuity and availability of systems supporting critical business and financial workflows</li>
+                        <li>Implemented access control protocols and software compliance audits to align with internal governance and IT security policies</li>
+                        <li>Supported ERP deployment and integration projects across finance and procurement, improving system transparency and cross-departmental data consistency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Technical Projects</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <h3 class="project-title">AI-Driven Sentiment Analysis for Stock Prediction</h3>
+                    <p class="project-duration">Jan 2025 - Present</p>
+                    <p class="project-description">
+                        Boosted stock movement prediction accuracy by 20% by fine-tuning NLP models using TensorFlow and PyTorch, transforming Amazon product reviews into structured sentiment signals. Automated sentiment extraction pipeline using Python (NLP, feature engineering) to process and correlate 1M+ reviews with financial data, improving data processing speed by 30% and enabling real-time trading insights.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Feature Engineering</span>
+                        <span class="tech-tag">Financial Analysis</span>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3 class="project-title">LLM-Based Psychological Research Analysis</h3>
+                    <p class="project-duration">Jan 2025 - Present</p>
+                    <p class="project-description">
+                        Constructed a scalable distributed processing system using Python, Ray, and PyTorch to train LLMs on life narratives from 1500+ participants, improving psychological outcome prediction accuracy by 17%. Streamlined tokenization and chunking workflows for millions of tokens, integrating prompt engineering and validation frameworks to enhance training efficiency.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Ray</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Distributed Computing</span>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3 class="project-title">Remote Patient-Centric Healthcare Application</h3>
+                    <p class="project-duration">Aug 2024 - Dec 2024</p>
+                    <p class="project-description">
+                        Developed a machine learning-powered health monitoring system using Python and PyTorch to detect anomalies from IoT medical device data, enabling real-time alerts and improving patient safety outcomes. Secured patient data and improved user-specific accessibility by implementing role-based access control (RBAC) and designing scalable processing pipelines using Ray.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Ray</span>
+                        <span class="tech-tag">RBAC</span>
+                        <span class="tech-tag">Healthcare</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            
+            <div class="certifications-grid">
+                <div class="cert-item fade-in">
+                    <div class="cert-name">AWS Certified Solutions Architect - Associate</div>
+                    <div class="cert-issuer">Amazon Web Services</div>
+                </div>
+
+                <div class="cert-item fade-in">
+                    <div class="cert-name">Supervised Machine Learning</div>
+                    <div class="cert-issuer">Stanford (Deeplearning.ai)</div>
+                </div>
+
+                <div class="cert-item fade-in">
+                    <div class="cert-name">Hashicorp Certified Terraform Associate</div>
+                    <div class="cert-issuer">HashiCorp</div>
+                </div>
+
+                <div class="cert-item fade-in">
+                    <div class="cert-name">Google Data Analytics Professional Certificate</div>
+                    <div class="cert-issuer">Google</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Luv Patel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add active class to navigation
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
