@@ -4,102 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luv Patel - Software(AI/ML)/Data Engineer Portfolio</title>
-    <meta name="description" content="Aspiring Cloud/Data Engineer with expertise in AWS, Python, and Machine Learning. Experience with ISRO and SMU.">
+    <meta name="description" content="AI/ML Engineer building production-grade systems. RAG pipelines, agentic AI, full-stack.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #0a0a0f;
+            --surface: #111118;
+            --surface2: #16161f;
+            --border: #1e1e2e;
+            --accent: #6c63ff;
+            --accent2: #00d4aa;
+            --accent3: #ff6b6b;
+            --text: #e8e8f0;
+            --text-muted: #8888aa;
+            --text-dim: #4a4a6a;
+            --gradient: linear-gradient(135deg, #6c63ff 0%, #00d4aa 100%);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* ── NOISE TEXTURE OVERLAY ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
         }
 
-        /* Header */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+        /* ── HEADER ── */
         header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
+            background: var(--bg);
+            padding: 5rem 0 4rem;
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid var(--border);
         }
 
-        header::before {
+        header::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.1);
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 500px;
+            background: radial-gradient(ellipse, rgba(108,99,255,0.12) 0%, transparent 70%);
+            pointer-events: none;
         }
 
-        header .container {
-            position: relative;
-            z-index: 1;
+        .header-inner {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            border: 5px solid white;
-            margin: 0 auto 1rem;
-            display: block;
+            border: 2px solid var(--accent);
             object-fit: cover;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+            box-shadow: 0 0 40px rgba(108,99,255,0.3);
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+        .header-text h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            line-height: 1.1;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.4rem;
         }
 
         .title {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.2rem;
+            font-family: 'DM Mono', monospace;
         }
 
         .contact-info {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
-            margin-top: 1rem;
         }
 
         .contact-info a {
-            color: white;
+            color: var(--text-muted);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 25px;
-            transition: all 0.3s ease;
+            padding: 0.35rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.82rem;
+            font-family: 'DM Mono', monospace;
+            transition: all 0.2s ease;
         }
 
         .contact-info a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
-        /* Navigation */
+        /* ── NAV ── */
         nav {
-            background: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(10,10,15,0.92);
+            backdrop-filter: blur(20px);
+            padding: 0;
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -107,734 +139,893 @@
 
         nav ul {
             display: flex;
-            justify-content: center;
             list-style: none;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 0;
+            overflow-x: auto;
         }
 
         nav a {
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-family: 'DM Mono', monospace;
+            padding: 1rem 1.25rem;
+            display: block;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
         nav a:hover, nav a.active {
-            background: #3b82f6;
-            color: white;
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
 
-        /* Sections */
-        section {
-            padding: 4rem 0;
-            margin: 2rem 0;
+        /* ── SECTIONS ── */
+        section { padding: 5rem 0; }
+
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--accent);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.4rem;
+            color: var(--text);
             margin-bottom: 3rem;
-            color: #333;
-            position: relative;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            margin: 1rem auto;
-            border-radius: 2px;
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0;
         }
 
-        /* About Section */
+        /* ── ABOUT ── */
         #about {
-            background: white;
-            border-radius: 15px;
-            padding: 3rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         .about-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 680px;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #b0b0cc;
+            font-weight: 300;
         }
 
-        /* Education Section */
+        .about-content p + p { margin-top: 1.2rem; }
+
+        /* ── EDUCATION ── */
         .education-item {
-            background: white;
-            padding: 2rem;
-            margin: 1.5rem 0;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid #3b82f6;
-        }
-
-        .education-header {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+            gap: 1rem;
+            transition: border-color 0.2s ease;
         }
+
+        .education-item:hover { border-color: var(--accent); }
 
         .school-name {
-            font-size: 1.3rem;
             font-weight: 600;
-            color: #333;
+            color: var(--text);
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
         }
 
-        .degree {
-            font-size: 1.1rem;
-            color: #666;
-            margin: 0.5rem 0;
-        }
+        .degree { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.3rem; }
 
         .gpa {
-            font-weight: 600;
-            color: #3b82f6;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent2);
         }
 
         .duration {
-            color: #888;
-            font-weight: 500;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            white-space: nowrap;
+            margin-top: 0.2rem;
         }
 
-        /* Certifications */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .cert-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            border-top: 3px solid #3b82f6;
-        }
-
-        .cert-name {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .cert-issuer {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Skills Section */
+        /* ── SKILLS ── */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
         }
 
         .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: border-color 0.2s;
         }
+
+        .skill-category:hover { border-color: var(--border); }
 
         .skill-category h3 {
-            color: #3b82f6;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
         }
 
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
+        .skill-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
         .skill-tag {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            background: var(--surface2);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: 'DM Mono', monospace;
         }
 
-        /* Experience Section */
+        /* ── EXPERIENCE ── */
         .experience-item {
-            background: white;
-            padding: 2.5rem;
-            margin: 2rem 0;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid #3b82f6;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.25rem;
+            border-left: 3px solid var(--accent);
+            transition: border-color 0.2s;
         }
 
-        .experience-header {
-            margin-bottom: 1.5rem;
-        }
+        .experience-item:hover { border-left-color: var(--accent2); }
 
         .job-title {
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
+            color: var(--text);
         }
 
         .company {
-            font-size: 1.1rem;
-            color: #3b82f6;
-            font-weight: 500;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin: 0.3rem 0 0.2rem;
         }
 
         .job-duration {
-            color: #888;
-            font-style: italic;
-            margin-top: 0.5rem;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-bottom: 1.2rem;
         }
 
-        .job-description {
-            margin-top: 1rem;
-        }
+        .job-description { list-style: none; }
 
         .job-description li {
-            margin: 0.5rem 0;
-            line-height: 1.6;
+            color: #b0b0cc;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
         }
 
-        /* Projects Section */
+        .job-description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.75rem;
+            top: 0.38rem;
+        }
+
+        /* ── PROJECTS ── */
+        #projects { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.25rem;
+        }
+
+        /* HERO PROJECT — full width */
+        .project-card.hero {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
         }
 
         .project-card {
-            background: white;
+            background: var(--bg);
+            border: 1px solid var(--border);
             border-radius: 10px;
             padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
 
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #333;
+        .project-card:hover { border-color: #2a2a3e; transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+        .project-card:hover::before { opacity: 1; }
+
+        .project-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.7rem;
+            border-radius: 3px;
             margin-bottom: 1rem;
         }
 
-        .project-duration {
-            color: #3b82f6;
-            font-size: 0.9rem;
-            font-weight: 500;
+        .badge-featured { background: rgba(108,99,255,0.15); color: var(--accent); border: 1px solid rgba(108,99,255,0.3); }
+        .badge-ai { background: rgba(0,212,170,0.1); color: var(--accent2); border: 1px solid rgba(0,212,170,0.25); }
+        .badge-infra { background: rgba(255,107,107,0.1); color: var(--accent3); border: 1px solid rgba(255,107,107,0.25); }
+
+        .project-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .project-card:not(.hero) .project-title { font-size: 1.2rem; }
+
+        .project-tagline {
+            font-size: 0.85rem;
+            color: var(--accent2);
+            font-family: 'DM Mono', monospace;
             margin-bottom: 1rem;
         }
 
         .project-description {
-            line-height: 1.6;
-            color: #666;
+            color: #9898b8;
+            font-size: 0.9rem;
+            line-height: 1.75;
         }
+
+        .project-description p + p { margin-top: 0.75rem; }
+
+        .project-features {
+            margin-top: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: #a0a0c0;
+        }
+
+        .feature-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+            margin-top: 0.45rem;
+        }
+
+        .feature-dot.green { background: var(--accent2); }
+        .feature-dot.red { background: var(--accent3); }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 0.4rem;
+            margin-top: 1.25rem;
         }
 
         .tech-tag {
-            background: #f8f9fa;
-            color: #3b82f6;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            border: 1px solid #e9ecef;
+            background: var(--surface2);
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.65rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-family: 'DM Mono', monospace;
         }
 
-        /* Footer */
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.85rem;
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            font-family: 'DM Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* ── CERTIFICATIONS ── */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .cert-item:hover { border-color: var(--accent2); }
+
+        .cert-name {
+            font-weight: 500;
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .cert-issuer {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        /* ── FOOTER ── */
         footer {
-            background: #333;
-            color: white;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
             text-align: center;
             padding: 2rem 0;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--text-dim);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .contact-info {
-                gap: 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            .education-header {
-                flex-direction: column;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-
-            .certifications-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 2rem 0;
-            }
-
-            #about {
-                padding: 2rem;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading animation */
+        /* ── FADE IN ── */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .header-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
+            .header-text h1 { font-size: 2.2rem; }
+            .contact-info { justify-content: center; }
+            .project-card.hero { grid-column: 1; grid-template-columns: 1fr; }
+            .education-item { flex-direction: column; }
+            .stat-row { grid-template-columns: repeat(3, 1fr); }
+            .section-title { font-size: 1.8rem; }
+            nav ul { gap: 0; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
+
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <div class="header-inner">
             <img src="./B62F407C-2449-4EF9-8818-69B9F957419B_1_105_c.jpeg" alt="Luv Patel" class="profile-img">
-            <h1>Luv Patel</h1>
-            <p class="title">Aspiring Cloud/Data Engineer | AI & ML Specialist</p>
-            <div class="contact-info">
-                <a href="mailto:luvpatel2001@gmail.com">📧 luvpatel2001@gmail.com</a>
-                <a href="https://www.linkedin.com/in/luvpatel2001/" target="_blank">💼 LinkedIn</a>
-                <a href="https://github.com/parzival5880" target="_blank">🔗 GitHub</a>
-                <a href="tel:+14696909612">📱 +1-469-690-9612</a>
+            <div class="header-text">
+                <h1>Luv Patel</h1>
+                <p class="title">AI/ML Engineer · Full-Stack · Dallas, TX</p>
+                <div class="contact-info">
+                    <a href="mailto:luvpatel2001@gmail.com">luvpatel2001@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/luvpatel2001/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/parzival5880" target="_blank">GitHub</a>
+                    <a href="tel:+14696909612">469-690-9612</a>
+                </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
+<!-- NAV -->
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Who I Am</h2>
+        <div class="about-content fade-in">
+            <p>I like building things that feel meaningful — the kind of work where creativity and logic overlap. I'm drawn to complex systems, but I care even more about how people actually experience them. Most of what I do sits somewhere between design and engineering, where decisions aren't just technical, they're intentional.</p>
+            <p>I enjoy the process: breaking down a problem, understanding why it matters, and shaping a solution that feels clean and inevitable in hindsight. I've learned that great work comes from curiosity, patience, and the willingness to rebuild something until it finally clicks.</p>
+            <p>Right now, I'm focused on creating tools and experiences that make it easier for people to express ideas. I want to make technology feel more intuitive, more playful, and closer to the way we actually think.</p>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <div class="container">
+        <div class="section-label">Education</div>
+        <h2 class="section-title">Academic Background</h2>
+
+        <div class="education-item fade-in">
+            <div>
+                <div class="school-name">Southern Methodist University</div>
+                <div class="degree">Master's, Computer Science · Specialization in AI & ML</div>
+                <div class="gpa">GPA: 3.83 / 4.0</div>
+            </div>
+            <div class="duration">Aug 2023 – May 2025</div>
+        </div>
+
+        <div class="education-item fade-in">
+            <div>
+                <div class="school-name">Dharmsinh Desai University</div>
+                <div class="degree">Bachelor's, Computer Science</div>
+                <div class="gpa">GPA: 3.36 / 4.0</div>
+            </div>
+            <div class="duration">Jul 2019 – May 2023</div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="container">
+        <div class="section-label">Technical Skills</div>
+        <h2 class="section-title">What I Work With</h2>
+
+        <div class="skills-container">
+            <div class="skill-category fade-in">
+                <h3>Languages & Frameworks</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Next.js</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>AI / ML Stack</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">LangChain</span>
+                    <span class="skill-tag">LangGraph</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">RAG Pipelines</span>
+                    <span class="skill-tag">Ollama</span>
+                    <span class="skill-tag">OpenRouter</span>
+                    <span class="skill-tag">Prompt Engineering</span>
+                    <span class="skill-tag">HuggingFace</span>
+                    <span class="skill-tag">Scikit-Learn</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Data Engineering</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">Spark</span>
+                    <span class="skill-tag">Airflow</span>
+                    <span class="skill-tag">Databricks</span>
+                    <span class="skill-tag">MLflow</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">Supabase</span>
+                    <span class="skill-tag">Ray</span>
+                    <span class="skill-tag">XGBoost</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Cloud & DevOps</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                    <span class="skill-tag">Lambda</span>
+                    <span class="skill-tag">Step Functions</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Visualization & Analytics</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Seaborn</span>
+                    <span class="skill-tag">Plotly</span>
+                    <span class="skill-tag">Mixpanel</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Databases & Infra</h3>
+                <div class="skill-list">
+                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Pinecone</span>
+                    <span class="skill-tag">AWS S3 / RDS</span>
+                    <span class="skill-tag">Supabase</span>
+                    <span class="skill-tag">SQLite</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <div class="container">
+        <div class="section-label">Experience</div>
+        <h2 class="section-title">Where I've Worked</h2>
+
+        <div class="experience-item fade-in">
+            <div class="job-title">Software Engineer</div>
+            <div class="company">SPREE — Kingship AI</div>
+            <div class="job-duration">Sep 2025 – Present · Dallas, TX</div>
+            <ul class="job-description">
+                <li>Architected production RAG pipelines using LangChain and Vertex AI, reducing hallucination rate by 40% across core product flows</li>
+                <li>Built agentic workflow orchestration system processing 10k+ daily tasks with LangGraph; integrated multi-model LLM routing (GPT-4, Claude, Gemini) saving ~60% on inference costs</li>
+                <li>Redesigned editorial generation pipeline (Gemini-based) and pre-warmed user buffers during onboarding, reducing feed latency by 25%</li>
+                <li>Designed and maintained PostgreSQL schemas and REST APIs serving real-time AI features in React Native frontend; increased user engagement by 15% measured via Mixpanel</li>
             </ul>
         </div>
-    </nav>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content fade-in">
-                <p>I like building things that feel meaningful — the kind of work where creativity and logic overlap. I'm drawn to complex systems, but I care even more about how people actually experience them. Most of what I do sits somewhere between design and engineering, where decisions aren't just technical, they're intentional.</p>
-                <br>
-                <p>I enjoy the process: breaking down a problem, understanding why it matters, and shaping a solution that feels clean and inevitable in hindsight. I've learned that great work comes from curiosity, patience, and the willingness to rebuild something until it finally clicks.</p>
-                <br>
-                <p>Right now, I'm focused on creating tools and experiences that make it easier for people to express ideas. I want to make technology feel more intuitive, more playful, and closer to the way we actually think. I like working with others who care about craft — who want to make things that last, not just things that ship.</p>
-            </div>
+        <div class="experience-item fade-in">
+            <div class="job-title">Research Assistant</div>
+            <div class="company">Southern Methodist University</div>
+            <div class="job-duration">Jan 2025 – Jun 2025 · Dallas, TX</div>
+            <ul class="job-description">
+                <li>Engineered structured datasets from 1M+ Amazon product reviews using Python (pandas, NumPy) and SQL, reducing preprocessing time by 35%</li>
+                <li>Trained deep learning models for stock price prediction in PyTorch and TensorFlow with regularization and time-series analysis, improving accuracy by 12%</li>
+                <li>Deployed data pipelines using Apache Airflow and MLflow on Databricks; leveraged AWS S3 and Docker for reproducible model retraining</li>
+            </ul>
         </div>
-    </section>
 
-    <!-- Education Section -->
-    <section id="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            
-            <div class="education-item fade-in">
-                <div class="education-header">
-                    <div>
-                        <div class="school-name">Southern Methodist University</div>
-                        <div class="degree">Master's, Computer Science, Specialization in AI & ML</div>
-                        <div class="gpa">GPA: 3.83/4.0</div>
-                    </div>
-                    <div class="duration">Aug 2023 - May 2025</div>
-                </div>
-            </div>
-
-            <div class="education-item fade-in">
-                <div class="education-header">
-                    <div>
-                        <div class="school-name">Dharmsinh Desai University</div>
-                        <div class="degree">Bachelor's, Computer Science</div>
-                        <div class="gpa">GPA: 3.36/4.0</div>
-                    </div>
-                    <div class="duration">Jul 2019 - May 2023</div>
-                </div>
-            </div>
+        <div class="experience-item fade-in">
+            <div class="job-title">Teaching Assistant</div>
+            <div class="company">Southern Methodist University</div>
+            <div class="job-duration">Jul 2024 – Present · Dallas, TX</div>
+            <ul class="job-description">
+                <li>Conducted graduate-level data mining labs integrating Scikit-learn, R, and SQL; improved students' applied ML understanding by 40%</li>
+                <li>Designed and graded assignments on classification, clustering, and PCA using real-world datasets and visualization libraries</li>
+                <li>Mentored 40+ students in machine learning applications using Jupyter Notebooks, Git, and model validation best practices</li>
+            </ul>
         </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            
-            <div class="skills-container">
-                <div class="skill-category fade-in">
-                    <h3>Languages & Tools</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">R Programming</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">React</span>
-                    </div>
-                </div>
-
-                <div class="skill-category fade-in">
-                    <h3>Data Science Libraries</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Scikit-Learn</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">XGBoost</span>
-                        <span class="skill-tag">Spark</span>
-                    </div>
-                </div>
-
-                <div class="skill-category fade-in">
-                    <h3>Data Analysis & Visualization</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Matplotlib</span>
-                        <span class="skill-tag">Seaborn</span>
-                        <span class="skill-tag">Plotly</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">Excel</span>
-                    </div>
-                </div>
-
-                <div class="skill-category fade-in">
-                    <h3>MLOps & Tools</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">MLflow</span>
-                        <span class="skill-tag">Databricks</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub Actions</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Airflow</span>
-                    </div>
-                </div>
-
-                <div class="skill-category fade-in">
-                    <h3>Cloud Platforms</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">AWS EC2</span>
-                        <span class="skill-tag">AWS S3</span>
-                        <span class="skill-tag">AWS RDS</span>
-                        <span class="skill-tag">AWS Lambda</span>
-                        <span class="skill-tag">AWS Redshift</span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                    </div>
-                </div>
-
-                <div class="skill-category fade-in">
-                    <h3>Business Skills</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Leadership</span>
-                        <span class="skill-tag">Time Management</span>
-                        <span class="skill-tag">Data Analysis</span>
-                        <span class="skill-tag">Customer Service</span>
-                        <span class="skill-tag">Adaptability</span>
-                        <span class="skill-tag">Analytic Reasoning</span>
-                    </div>
-                </div>
-            </div>
+        <div class="experience-item fade-in">
+            <div class="job-title">Data Analyst / ML Intern</div>
+            <div class="company">Indian Space Research Organization (ISRO)</div>
+            <div class="job-duration">Dec 2022 – Apr 2023 · Ahmedabad, India</div>
+            <ul class="job-description">
+                <li>Developed end-to-end data pipelines for satellite geospatial datasets using Python, Shell scripting, and PostgreSQL for oceanographic analysis</li>
+                <li>Built coastal storm surge prediction models using XGBoost and Keras, improving forecasting precision for critical zones by 15%</li>
+                <li>Delivered Power BI dashboards showcasing flood pattern trends and predictive simulations to support cyclone response decision-making</li>
+            </ul>
         </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            
-            <div class="experience-item fade-in">
-                <div class="experience-header">
-                    <div class="job-title">Full-Stack Engineer</div>
-                    <div class="company">SPREE — Kingship AI</div>
-                    <div class="job-duration">Recent</div>
-                </div>
-                <div class="job-description">
-                    <ul>
-                        <li>SPREE needed to deliver meaningful, personalized gift recommendations while providing a smooth end-to-end user experience</li>
-                        <li>Improved the personalization logic and built/maintained the full app stack to support a seamless gifting flow</li>
-                        <li>Developed the AI reasoning pipeline to interpret relationship context and occasions, and engineered core frontend + backend features, including onboarding flows, API integrations, and UI interactions</li>
-                        <li>Delivered more thoughtful, emotionally-aligned gift suggestions and a faster, more intuitive user journey across the entire application</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="experience-item fade-in">
-                <div class="experience-header">
-                    <div class="job-title">Research Assistant</div>
-                    <div class="company">Southern Methodist University</div>
-                    <div class="job-duration">Jan 2025 - Present | Dallas, TX</div>
-                </div>
-                <div class="job-description">
-                    <ul>
-                        <li>Engineered structured datasets from noisy Amazon product reviews and historical stock data using Python (pandas, NumPy) and SQL, reducing preprocessing time by 35% and improving model training throughput</li>
-                        <li>Trained and optimized deep learning models for stock price prediction using PyTorch and TensorFlow, applying regularization, dropout, and time-series analysis techniques, which led to a 12% increase in prediction accuracy</li>
-                        <li>Deployed data pipelines using Apache Airflow and stored experiment artifacts with MLflow on Databricks, while leveraging AWS S3 and Docker to enable reproducible and scalable model retraining</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="experience-item fade-in">
-                <div class="experience-header">
-                    <div class="job-title">Teaching Assistant</div>
-                    <div class="company">Southern Methodist University</div>
-                    <div class="job-duration">Jul 2024 - Present | Dallas, TX</div>
-                </div>
-                <div class="job-description">
-                    <ul>
-                        <li>Conducted interactive tutorials and labs for graduate-level data mining, integrating Scikit-learn, R, and SQL-based exercises that improved students' applied ML understanding by over 40%</li>
-                        <li>Designed and graded assignments focused on classification, clustering, and PCA, using real-world datasets and visualization libraries like Seaborn and Matplotlib to enhance data storytelling concepts</li>
-                        <li>Mentored 40+ students in applying machine learning to business cases, incorporating Jupyter Notebooks, reproducibility tools like Git, and shared best practices for model validation and performance tuning</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="experience-item fade-in">
-                <div class="experience-header">
-                    <div class="job-title">Data Analyst/Machine Learning Intern</div>
-                    <div class="company">Indian Space Research Organization (ISRO)</div>
-                    <div class="job-duration">Dec 2022 - Apr 2023 | Ahmedabad, India</div>
-                </div>
-                <div class="job-description">
-                    <ul>
-                        <li>Developed end-to-end data pipelines for processing satellite-based geospatial datasets using Python, Shell scripting, and PostgreSQL, enabling seamless ingestion and transformation for oceanographic analysis</li>
-                        <li>Programmed coastal storm surge prediction models using XGBoost and Keras, combining meteorological and spatial data, improving forecasting precision for critical zones by 15%</li>
-                        <li>Delivered insights through interactive dashboards built in Power BI, showcasing flood pattern trends and predictive simulations to help decision-makers mitigate coastal impact during cyclones</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="experience-item fade-in">
-                <div class="experience-header">
-                    <div class="job-title">IT Systems Associate - Infrastructure & Automation</div>
-                    <div class="company">Neelkanthn Infratech</div>
-                    <div class="job-duration">May 2021 - Oct 2022 | Gujarat, India</div>
-                </div>
-                <div class="job-description">
-                    <ul>
-                        <li>Developed and deployed automation scripts using Bash/PowerShell to streamline system processes, backups, and compliance log management, enhancing audit readiness and reducing manual intervention</li>
-                        <li>Managed and monitored local IT infrastructure, ensuring operational continuity and availability of systems supporting critical business and financial workflows</li>
-                        <li>Implemented access control protocols and software compliance audits to align with internal governance and IT security policies</li>
-                        <li>Supported ERP deployment and integration projects across finance and procurement, improving system transparency and cross-departmental data consistency</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="experience-item fade-in">
+            <div class="job-title">IT Systems Associate — Infrastructure & Automation</div>
+            <div class="company">Neelkanthn Infratech</div>
+            <div class="job-duration">May 2021 – Oct 2022 · Gujarat, India</div>
+            <ul class="job-description">
+                <li>Developed Bash/PowerShell automation scripts for system backups and compliance log management, enhancing audit readiness</li>
+                <li>Managed local IT infrastructure supporting critical business and financial workflows; implemented access control and compliance audits</li>
+                <li>Supported ERP deployment and integration across finance and procurement, improving cross-departmental data consistency</li>
+            </ul>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Technical Projects</h2>
-            
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <h3 class="project-title">AI-Driven Sentiment Analysis for Stock Prediction</h3>
-                    <p class="project-duration">Jan 2025 - Present</p>
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="container">
+        <div class="section-label">Projects</div>
+        <h2 class="section-title">Things I've Built</h2>
+
+        <div class="projects-grid">
+
+            <!-- HERO: RateMyRental -->
+            <div class="project-card hero fade-in">
+                <div class="hero-left">
+                    <span class="project-badge badge-featured">Featured Project</span>
+                    <h3 class="project-title">RateMyRental</h3>
+                    <p class="project-tagline">Dallas landlord transparency platform</p>
                     <p class="project-description">
-                        Boosted stock movement prediction accuracy by 20% by fine-tuning NLP models using TensorFlow and PyTorch, transforming Amazon product reviews into structured sentiment signals. Automated sentiment extraction pipeline using Python (NLP, feature engineering) to process and correlate 1M+ reviews with financial data, improving data processing speed by 30% and enabling real-time trading insights.
+                        A civic-tech platform that lets anyone look up a Dallas rental property, see who owns it, check eviction history, read tenant reviews, and get an AI-powered risk report — all built on 100% free public data.
+                    </p>
+                    <p class="project-description" style="margin-top:0.75rem">
+                        The backend ingests 858,618 DCAD property records, Princeton Eviction Lab data, and Dallas 311 complaints into Supabase. DeepSeek R1 (running locally via Ollama, OpenRouter in prod) powers three AI features: property risk reports, lease red-flag scanning, and a streaming tenant rights chatbot.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Feature Engineering</span>
-                        <span class="tech-tag">Financial Analysis</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Supabase / PostgreSQL</span>
+                        <span class="tech-tag">DeepSeek R1</span>
+                        <span class="tech-tag">Ollama</span>
+                        <span class="tech-tag">OpenRouter</span>
+                        <span class="tech-tag">SSE Streaming</span>
+                        <span class="tech-tag">Tailwind CSS</span>
                     </div>
                 </div>
-
-                <div class="project-card fade-in">
-                    <h3 class="project-title">LLM-Based Psychological Research Analysis</h3>
-                    <p class="project-duration">Jan 2025 - Present</p>
-                    <p class="project-description">
-                        Constructed a scalable distributed processing system using Python, Ray, and PyTorch to train LLMs on life narratives from 1500+ participants, improving psychological outcome prediction accuracy by 17%. Streamlined tokenization and chunking workflows for millions of tokens, integrating prompt engineering and validation frameworks to enhance training efficiency.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Ray</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">LLMs</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Distributed Computing</span>
+                <div class="hero-right">
+                    <div class="stat-row">
+                        <div class="stat-box">
+                            <span class="stat-num">858K</span>
+                            <span class="stat-label">Properties</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">3</span>
+                            <span class="stat-label">AI Features</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">6</span>
+                            <span class="stat-label">API Endpoints</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <h3 class="project-title">Remote Patient-Centric Healthcare Application</h3>
-                    <p class="project-duration">Aug 2024 - Dec 2024</p>
-                    <p class="project-description">
-                        Developed a machine learning-powered health monitoring system using Python and PyTorch to detect anomalies from IoT medical device data, enabling real-time alerts and improving patient safety outcomes. Secured patient data and improved user-specific accessibility by implementing role-based access control (RBAC) and designing scalable processing pipelines using Ray.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">IoT</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Ray</span>
-                        <span class="tech-tag">RBAC</span>
-                        <span class="tech-tag">Healthcare</span>
+                    <div class="project-features" style="margin-top:1.5rem">
+                        <div class="feature-item">
+                            <div class="feature-dot green"></div>
+                            <span><strong style="color:#e8e8f0">AI Property Risk Report</strong> — Generates cached risk summaries with red-flag scoring (evictions ×10 + complaints ×2) using DeepSeek R1</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span><strong style="color:#e8e8f0">AI Lease Scanner</strong> — Identifies harmful clauses, missing protections, and tenant-friendliness score (1–10) from raw lease text</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot red"></div>
+                            <span><strong style="color:#e8e8f0">Streaming Tenant Chat</strong> — Real-time SSE token streaming of Dallas tenant rights Q&A; law context injected as system prompt</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot green"></div>
+                            <span><strong style="color:#e8e8f0">Privacy-preserving reviews</strong> — SHA-256 IP hashing for dedup; Row Level Security on Supabase; no PII stored</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            
-            <div class="certifications-grid">
-                <div class="cert-item fade-in">
-                    <div class="cert-name">AWS Certified Solutions Architect - Associate</div>
-                    <div class="cert-issuer">Amazon Web Services</div>
+            <!-- LangGraph Job Autopilot -->
+            <div class="project-card fade-in">
+                <span class="project-badge badge-ai">AI · Automation</span>
+                <h3 class="project-title">LangGraph Job Autopilot</h3>
+                <p class="project-tagline">~100 tailored applications/day · $0.90/day</p>
+                <p class="project-description">
+                    A local, production-grade agentic pipeline built with LangGraph that scrapes job listings via Apify, scores fit using Ollama (free), generates tailored cover letters and recruiter emails via Claude Haiku, produces job-specific DOCX resumes, and logs everything to an XLSX tracker with live response-rate formulas.
+                </p>
+                <div class="project-features" style="margin-top:1rem">
+                    <div class="feature-item">
+                        <div class="feature-dot"></div>
+                        <span>5-node LangGraph state machine: scrape → score → generate → resume → log</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-dot green"></div>
+                        <span>SQLite dedup across daily runs; ATS keyword mirroring from each JD</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-dot"></div>
+                        <span>Ollama (free) for scoring + dedup; Claude Haiku only for output generation</span>
+                    </div>
                 </div>
-
-                <div class="cert-item fade-in">
-                    <div class="cert-name">Databricks Certified Data Engineer – Associate</div>
-                    <div class="cert-issuer">Databricks</div>
-                </div>
-
-                <div class="cert-item fade-in">
-                    <div class="cert-name">Supervised Machine Learning</div>
-                    <div class="cert-issuer">Stanford (Deeplearning.ai)</div>
-                </div>
-
-                <div class="cert-item fade-in">
-                    <div class="cert-name">Hashicorp Certified Terraform Associate</div>
-                    <div class="cert-issuer">HashiCorp</div>
-                </div>
-
-                <div class="cert-item fade-in">
-                    <div class="cert-name">Google Data Analytics Professional Certificate</div>
-                    <div class="cert-issuer">Google</div>
+                <div class="project-tech">
+                    <span class="tech-tag">LangGraph</span>
+                    <span class="tech-tag">LangChain</span>
+                    <span class="tech-tag">Ollama</span>
+                    <span class="tech-tag">Claude Haiku</span>
+                    <span class="tech-tag">Apify</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQLite</span>
+                    <span class="tech-tag">docx</span>
                 </div>
             </div>
+
+            <!-- Agentic AI Platform on AWS -->
+            <div class="project-card fade-in">
+                <span class="project-badge badge-infra">Cloud · AI Infra</span>
+                <h3 class="project-title">Agentic AI Platform on AWS</h3>
+                <p class="project-tagline">Multi-agent orchestration · EKS · Terraform IaC</p>
+                <p class="project-description">
+                    Cloud-native multi-agent AI platform architected on AWS EKS with Lambda, API Gateway, Step Functions, SQS, and CloudWatch. ReAct-style agent orchestration with tool-selection logic, RAG via Pinecone, and Terraform-managed infrastructure. Optimized inference pipeline cut API latency by 25%.
+                </p>
+                <div class="project-features" style="margin-top:1rem">
+                    <div class="feature-item">
+                        <div class="feature-dot red"></div>
+                        <span>Multi-model LLM routing (GPT-4, Claude, Gemini) with cost-optimized fallback — ~60% cost reduction</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-dot"></div>
+                        <span>GitOps CI/CD via GitHub Actions; full Infrastructure-as-Code with Terraform</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-dot green"></div>
+                        <span>CloudWatch observability with conversation ID tracing across distributed services</span>
+                    </div>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">AWS EKS</span>
+                    <span class="tech-tag">Lambda</span>
+                    <span class="tech-tag">Step Functions</span>
+                    <span class="tech-tag">Terraform</span>
+                    <span class="tech-tag">LangChain</span>
+                    <span class="tech-tag">Pinecone</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">GitHub Actions</span>
+                </div>
+            </div>
+
+            <!-- Sentiment → Stock Prediction -->
+            <div class="project-card fade-in">
+                <span class="project-badge badge-ai">NLP · Finance</span>
+                <h3 class="project-title">AI-Driven Sentiment → Stock Prediction</h3>
+                <p class="project-tagline">1M+ reviews · 20% accuracy boost</p>
+                <p class="project-description">
+                    Fine-tuned NLP models in TensorFlow and PyTorch on 1M+ Amazon product reviews, transforming raw text into structured sentiment signals correlated with stock movement. Automated pipeline improved data processing speed by 30% and enabled real-time trading insights.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Feature Engineering</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pandas</span>
+                </div>
+            </div>
+
+            <!-- LLM Psychological Research -->
+            <div class="project-card fade-in">
+                <span class="project-badge badge-ai">LLMs · Research</span>
+                <h3 class="project-title">LLM Psychological Research Analysis</h3>
+                <p class="project-tagline">1500+ participants · distributed training</p>
+                <p class="project-description">
+                    Scalable distributed processing system using Python, Ray, and PyTorch to train LLMs on life narratives from 1500+ participants, improving psychological outcome prediction accuracy by 17%. Streamlined tokenization and chunking workflows for millions of tokens.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Ray</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">LLMs</span>
+                    <span class="tech-tag">Distributed Computing</span>
+                    <span class="tech-tag">NLP</span>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Luv Patel. All rights reserved.</p>
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+    <div class="container">
+        <div class="section-label">Certifications</div>
+        <h2 class="section-title">Credentials</h2>
+
+        <div class="certifications-grid">
+            <div class="cert-item fade-in">
+                <div class="cert-name">AWS Certified Solutions Architect – Associate</div>
+                <div class="cert-issuer">Amazon Web Services</div>
+            </div>
+            <div class="cert-item fade-in">
+                <div class="cert-name">Databricks Certified Data Engineer – Associate</div>
+                <div class="cert-issuer">Databricks</div>
+            </div>
+            <div class="cert-item fade-in">
+                <div class="cert-name">Supervised Machine Learning</div>
+                <div class="cert-issuer">Stanford / DeepLearning.ai</div>
+            </div>
+            <div class="cert-item fade-in">
+                <div class="cert-name">HashiCorp Certified Terraform Associate</div>
+                <div class="cert-issuer">HashiCorp</div>
+            </div>
+            <div class="cert-item fade-in">
+                <div class="cert-name">Google Data Analytics Professional Certificate</div>
+                <div class="cert-issuer">Google</div>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>© 2026 Luv Patel · Built with intention.</p>
+    </div>
+</footer>
+
+<script>
+    // Smooth scroll
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+    });
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+    // Fade-in on scroll
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        // Add active class to navigation
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
+    // Active nav highlight
+    window.addEventListener('scroll', () => {
+        let current = '';
+        document.querySelectorAll('section').forEach(section => {
+            if (scrollY >= section.offsetTop - 200) current = section.getAttribute('id');
         });
-    </script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+        });
+    });
+</script>
 </body>
 </html>
