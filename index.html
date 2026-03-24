@@ -617,7 +617,7 @@
         <div class="education-item fade-in">
             <div>
                 <div class="school-name">Southern Methodist University</div>
-                <div class="degree">Master's, Computer Science · Specialization in AI & ML</div>
+                <div class="degree">Master's, Computer Science · Specialization in AI &amp; ML</div>
                 <div class="gpa">GPA: 3.83 / 4.0</div>
             </div>
             <div class="duration">Aug 2023 – May 2025</div>
@@ -642,7 +642,7 @@
 
         <div class="skills-container">
             <div class="skill-category fade-in">
-                <h3>Languages & Frameworks</h3>
+                <h3>Languages &amp; Frameworks</h3>
                 <div class="skill-list">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">SQL</span>
@@ -688,7 +688,7 @@
             </div>
 
             <div class="skill-category fade-in">
-                <h3>Cloud & DevOps</h3>
+                <h3>Cloud &amp; DevOps</h3>
                 <div class="skill-list">
                     <span class="skill-tag">AWS</span>
                     <span class="skill-tag">GCP</span>
@@ -702,7 +702,7 @@
             </div>
 
             <div class="skill-category fade-in">
-                <h3>Visualization & Analytics</h3>
+                <h3>Visualization &amp; Analytics</h3>
                 <div class="skill-list">
                     <span class="skill-tag">Power BI</span>
                     <span class="skill-tag">Tableau</span>
@@ -714,7 +714,7 @@
             </div>
 
             <div class="skill-category fade-in">
-                <h3>Databases & Infra</h3>
+                <h3>Databases &amp; Infra</h3>
                 <div class="skill-list">
                     <span class="skill-tag">Redis</span>
                     <span class="skill-tag">MongoDB</span>
@@ -780,7 +780,7 @@
         </div>
 
         <div class="experience-item fade-in">
-            <div class="job-title">IT Systems Associate — Infrastructure & Automation</div>
+            <div class="job-title">IT Systems Associate — Infrastructure &amp; Automation</div>
             <div class="company">Neelkanthn Infratech</div>
             <div class="job-duration">May 2021 – Oct 2022 · Gujarat, India</div>
             <ul class="job-description">
@@ -849,7 +849,7 @@
                         </div>
                         <div class="feature-item">
                             <div class="feature-dot red"></div>
-                            <span><strong style="color:#e8e8f0">Streaming Tenant Chat</strong> — Real-time SSE token streaming of Dallas tenant rights Q&A; law context injected as system prompt</span>
+                            <span><strong style="color:#e8e8f0">Streaming Tenant Chat</strong> — Real-time SSE token streaming of Dallas tenant rights Q&amp;A; law context injected as system prompt</span>
                         </div>
                         <div class="feature-item">
                             <div class="feature-dot green"></div>
@@ -858,6 +858,67 @@
                     </div>
                 </div>
             </div>
+
+            <!-- ═══ IC MAPPER ═══ -->
+            <div class="project-card hero fade-in">
+                <div class="hero-left">
+                    <span class="project-badge badge-featured">Featured Project · In Development</span>
+                    <h3 class="project-title">IC Mapper</h3>
+                    <p class="project-tagline">AI debugging co-pilot for hardware datasheets</p>
+                    <p class="project-description">
+                        Engineers debugging circuits spend 20+ minutes manually cross-referencing pin configs, application diagrams, electrical specs, and register maps across 40–60 page IC datasheets. IC Mapper answers those questions in seconds — with source citations, grounding verification, and no hallucinated component values.
+                    </p>
+                    <p class="project-description" style="margin-top:0.75rem">
+                        Built a 6-stage fully local RAG pipeline: Unstructured.io (hi_res OCR + layout detection) for structure-aware PDF parsing, hybrid dense+sparse retrieval via Qdrant with RRF fusion, cross-encoder reranking, and DeepSeek R1 14B via Ollama for chain-of-thought reasoning. A rule-based grounding agent verifies every numeric citation before the user sees the answer.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">LangGraph</span>
+                        <span class="tech-tag">Qdrant Hybrid Search</span>
+                        <span class="tech-tag">Unstructured.io</span>
+                        <span class="tech-tag">BGE-small-en-v1.5</span>
+                        <span class="tech-tag">DeepSeek R1 14B</span>
+                        <span class="tech-tag">Ollama</span>
+                        <span class="tech-tag">PyMuPDF</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="stat-row">
+                        <div class="stat-box">
+                            <span class="stat-num">6</span>
+                            <span class="stat-label">Pipeline Stages</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">2×</span>
+                            <span class="stat-label">Auto Retry</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">Local</span>
+                            <span class="stat-label">Zero API Cost</span>
+                        </div>
+                    </div>
+                    <div class="project-features" style="margin-top:1.5rem">
+                        <div class="feature-item">
+                            <div class="feature-dot green"></div>
+                            <span><strong style="color:#e8e8f0">Hybrid Retrieval + Reranking</strong> — Qdrant dense (BGE semantic) + sparse (BM25 exact-match) with RRF fusion; cross-encoder reranks top 20 candidates for precision that bi-encoder search alone misses</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span><strong style="color:#e8e8f0">Structure-Aware Chunking</strong> — chunk_by_title keeps register maps, pin tables, and application circuits intact; supplemental PyMuPDF pass extracts component values hidden in vector graphics that OCR cannot read</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot red"></div>
+                            <span><strong style="color:#e8e8f0">Grounding Agent</strong> — post-hoc fact-checker verifies every citation [N, p.X] and numeric claim (voltages, currents, register addresses) against source chunks via deterministic regex — zero hallucination risk in the verifier itself</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot green"></div>
+                            <span><strong style="color:#e8e8f0">LangGraph State Machine</strong> — typed DebugState: retrieve → reason → verify, with conditional retry edges (max 2×) and explicit give-up warnings when grounding cannot be confirmed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ═══ END IC MAPPER ═══ -->
 
             <!-- LangGraph Job Autopilot -->
             <div class="project-card fade-in">
