@@ -397,6 +397,7 @@
         .badge-featured { background: rgba(108,99,255,0.15); color: var(--accent); border: 1px solid rgba(108,99,255,0.3); }
         .badge-ai { background: rgba(0,212,170,0.1); color: var(--accent2); border: 1px solid rgba(0,212,170,0.25); }
         .badge-infra { background: rgba(255,107,107,0.1); color: var(--accent3); border: 1px solid rgba(255,107,107,0.25); }
+        .badge-live { background: rgba(108,99,255,0.15); color: var(--accent); border: 1px solid rgba(108,99,255,0.3); }
 
         .project-title {
             font-family: 'DM Serif Display', serif;
@@ -495,6 +496,70 @@
             font-family: 'DM Mono', monospace;
             text-transform: uppercase;
             letter-spacing: 0.08em;
+        }
+
+        /* ── PROJECT LINKS ── */
+        .project-links {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .project-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .project-link.primary {
+            border-color: rgba(108,99,255,0.4);
+            color: var(--accent);
+            background: rgba(108,99,255,0.08);
+        }
+
+        .project-link.primary:hover {
+            background: rgba(108,99,255,0.15);
+            border-color: var(--accent);
+        }
+
+        /* ── LIVE INDICATOR ── */
+        .live-dot {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--accent2);
+            margin-left: 0.5rem;
+        }
+
+        .live-dot::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent2);
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
         }
 
         /* ── CERTIFICATIONS ── */
@@ -812,6 +877,9 @@
                     <p class="project-description" style="margin-top:0.75rem">
                         The backend ingests 858,618 DCAD property records, Princeton Eviction Lab data, and Dallas 311 complaints into Supabase. DeepSeek R1 (running locally via Ollama, OpenRouter in prod) powers three AI features: property risk reports, lease red-flag scanning, and a streaming tenant rights chatbot.
                     </p>
+                    <div class="project-links">
+                        <a href="https://github.com/parzival5880/RateMyRental" target="_blank" class="project-link primary">↗ GitHub</a>
+                    </div>
                     <div class="project-tech">
                         <span class="tech-tag">Next.js</span>
                         <span class="tech-tag">FastAPI</span>
@@ -858,6 +926,70 @@
                     </div>
                 </div>
             </div>
+
+            <!-- ═══ TWINMIND ═══ -->
+            <div class="project-card hero fade-in">
+                <div class="hero-left">
+                    <span class="project-badge badge-featured">Featured Project</span>
+                    <h3 class="project-title">TwinMind <span class="live-dot">live</span></h3>
+                    <p class="project-tagline">Real-time meeting copilot · live suggestions · grounded web facts</p>
+                    <p class="project-description">
+                        Engineers and PMs spend meetings scrambling for the right question to ask, the right number to cite, the right clarification to request. TwinMind listens in real time, understands the conversation as it unfolds, and surfaces the three highest-value things you could say next — while you're still in the room.
+                    </p>
+                    <p class="project-description" style="margin-top:0.75rem">
+                        Built a 2-step suggestion pipeline: a large model generates candidate cards, a critic model critiques, deduplicates, and selects the final 3. A Tavily grounding layer extracts named entities (products, cloud services, pricing tiers, standards) from live transcript context and fetches scoped web facts — not generic definitions, but answers tied to the actual scenario in the meeting.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/parzival5880/TwinMind" target="_blank" class="project-link primary">↗ GitHub</a>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js App Router</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Groq Whisper</span>
+                        <span class="tech-tag">Groq llama-3.1-8b</span>
+                        <span class="tech-tag">GPT-4o (120B)</span>
+                        <span class="tech-tag">Azure AI Foundry</span>
+                        <span class="tech-tag">Tavily</span>
+                        <span class="tech-tag">SSE Streaming</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="stat-row">
+                        <div class="stat-box">
+                            <span class="stat-num">30s</span>
+                            <span class="stat-label">Suggestion Cycle</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">2-Step</span>
+                            <span class="stat-label">LLM Pipeline</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num">5</span>
+                            <span class="stat-label">Card Types</span>
+                        </div>
+                    </div>
+                    <div class="project-features" style="margin-top:1.5rem">
+                        <div class="feature-item">
+                            <div class="feature-dot green"></div>
+                            <span><strong style="color:#e8e8f0">2-Step Suggestion Engine</strong> — Call A generates candidate cards (question, talking_point, fact_check, clarification, answer); Call B critiques, ranks, and selects the final 3 with evidence quotes and rationale</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span><strong style="color:#e8e8f0">Live Meeting Memory</strong> — Continuously builds rolling summary, salient moments, and conversation-stage classification as the meeting unfolds; pre-fires generation to land results at 30s/60s/90s boundaries</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot red"></div>
+                            <span><strong style="color:#e8e8f0">Scoped Web Grounding</strong> — Tavily extracts and searches named entities in meeting context (e.g. "AWS MSK at 1M events/sec with 7-day retention", not just "AWS MSK"); budget-capped per session with graceful degradation</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-dot green"></div>
+                            <span><strong style="color:#e8e8f0">3-Column Analyst Workspace</strong> — Transcript · Live Suggestions · Deep Dive chat with SSE streaming; cards support pinning, per-type mute, "Why this?" expansion, and source chips; ambient "listening" state when signal is low</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ═══ END TWINMIND ═══ -->
 
             <!-- ═══ IC MAPPER ═══ -->
             <div class="project-card hero fade-in">
