@@ -562,6 +562,209 @@
             50% { opacity: 0.4; transform: scale(0.8); }
         }
 
+        /* ── OPEN SOURCE ── */
+#opensource {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.oss-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 1.5rem;
+}
+
+.oss-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    border-left: 3px solid var(--accent2);
+}
+
+.oss-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent2), transparent 60%);
+    opacity: 0.5;
+}
+
+.oss-card:hover {
+    border-color: rgba(0,212,170,0.3);
+    border-left-color: var(--accent2);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.oss-repo-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.oss-repo-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.04em;
+}
+
+.oss-pr-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--text);
+    line-height: 1.25;
+}
+
+.oss-pr-title code {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.05rem;
+    color: var(--accent2);
+}
+
+.oss-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-top: 0.15rem;
+}
+
+.status-merged {
+    background: rgba(108,99,255,0.12);
+    color: var(--accent);
+    border: 1px solid rgba(108,99,255,0.3);
+}
+
+.status-merged::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+}
+
+.status-inflight {
+    background: rgba(255,183,77,0.08);
+    color: #ffb74d;
+    border: 1px solid rgba(255,183,77,0.25);
+}
+
+.status-inflight::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #ffb74d;
+    display: inline-block;
+    animation: pulse 1.8s ease-in-out infinite;
+}
+
+.oss-issue-ref {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    margin: 0.5rem 0 1rem;
+}
+
+.oss-issue-ref a {
+    color: var(--accent2);
+    text-decoration: none;
+    transition: opacity 0.15s;
+}
+
+.oss-issue-ref a:hover { opacity: 0.7; }
+
+.oss-description {
+    color: #9898b8;
+    font-size: 0.88rem;
+    line-height: 1.75;
+    margin-bottom: 1.1rem;
+}
+
+.oss-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.oss-bullets li {
+    font-size: 0.84rem;
+    color: #a0a0c0;
+    padding-left: 1.1rem;
+    position: relative;
+    line-height: 1.65;
+}
+
+.oss-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+    font-size: 0.68rem;
+    top: 0.28rem;
+}
+
+.oss-bullets code {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent2);
+    background: rgba(0,212,170,0.06);
+    padding: 0.05rem 0.3rem;
+    border-radius: 2px;
+}
+
+.oss-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1.25rem;
+}
+
+.oss-tech-tag {
+    background: rgba(0,212,170,0.05);
+    color: #5a8a7a;
+    border: 1px solid rgba(0,212,170,0.14);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-family: 'DM Mono', monospace;
+}
+
+.oss-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.project-link.teal {
+    border-color: rgba(0,212,170,0.4);
+    color: var(--accent2);
+    background: rgba(0,212,170,0.06);
+}
+
+.project-link.teal:hover {
+    background: rgba(0,212,170,0.12);
+    border-color: var(--accent2);
+}
+
         /* ── CERTIFICATIONS ── */
         .certifications-grid {
             display: grid;
@@ -622,6 +825,9 @@
             .stat-row { grid-template-columns: repeat(3, 1fr); }
             .section-title { font-size: 1.8rem; }
             nav ul { gap: 0; }
+                /* Add these */
+            .oss-grid { grid-template-columns: 1fr; }
+            .oss-repo-header { flex-direction: column; gap: 0.5rem; }
         }
     </style>
 </head>
@@ -655,6 +861,7 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#opensource">Open Source</a></li>
             <li><a href="#certifications">Certifications</a></li>
         </ul>
     </div>
@@ -1160,6 +1367,104 @@
     </div>
 </section>
 
+<section id="opensource">
+    <div class="container">
+        <div class="section-label">Open Source</div>
+        <h2 class="section-title">Contributions</h2>
+
+        <div class="oss-grid">
+
+            <div class="oss-card fade-in">
+                <div class="oss-repo-header">
+                    <div>
+                        <div class="oss-repo-name">microsoft / LlamaFarm</div>
+                        <h3 class="oss-pr-title">Runtime status in <code>lf models list</code></h3>
+                    </div>
+                    <span class="oss-status status-merged">Merged</span>
+                </div>
+
+                <div class="oss-issue-ref">
+                    PR <a href="https://github.com/microsoft/LlamaFarm/pull/826" target="_blank">#826</a>
+                    &nbsp;·&nbsp;
+                    Closes issue <a href="https://github.com/microsoft/LlamaFarm/issues/798" target="_blank">#798</a>
+                </div>
+
+                <p class="oss-description">
+                    Extended the CLI to surface live per-model runtime state — running, loaded, idle, or unreachable — alongside memory usage, GPU allocation, uptime, and host. Providers previously returned no operational metadata; this PR adds a full server-side polling layer and propagates it through the REST API and CLI renderer.
+                </p>
+
+                <ul class="oss-bullets">
+                    <li>Built <code>list_model_runtime_statuses()</code> in <code>ModelService</code>; implemented <code>get_model_runtime_status()</code> for all three providers — Ollama, Lemonade, and Universal Runtime</li>
+                    <li>Extended <code>GET /v1/projects/{ns}/{id}/models</code> with 9 new runtime fields and built server-side uptime tracking using <code>time.monotonic()</code></li>
+                    <li>Added <code>format_duration()</code> helper and addressed review feedback around ruff formatting and memory reporting</li>
+                    <li>Added Python and Go tests with CI coverage across macOS, Ubuntu, and Windows</li>
+                </ul>
+
+                <div class="oss-tech">
+                    <span class="oss-tech-tag">Go</span>
+                    <span class="oss-tech-tag">Python</span>
+                    <span class="oss-tech-tag">REST API</span>
+                    <span class="oss-tech-tag">pytest</span>
+                    <span class="oss-tech-tag">GitHub Actions</span>
+                    <span class="oss-tech-tag">Ollama</span>
+                    <span class="oss-tech-tag">time.monotonic()</span>
+                </div>
+
+                <div class="oss-links">
+                    <a href="https://github.com/microsoft/LlamaFarm/pull/826" target="_blank" class="project-link teal">↗ View PR #826</a>
+                    <a href="https://github.com/microsoft/LlamaFarm/issues/798" target="_blank" class="project-link">Issue #798</a>
+                    <a href="https://github.com/microsoft/LlamaFarm" target="_blank" class="project-link">LlamaFarm Repo</a>
+                </div>
+            </div>
+
+            <div class="oss-card fade-in">
+                <div class="oss-repo-header">
+                    <div>
+                        <div class="oss-repo-name">microsoft / LlamaFarm</div>
+                        <h3 class="oss-pr-title">Bundle llama.cpp binaries into release artifacts</h3>
+                    </div>
+                    <span class="oss-status status-inflight">In Review</span>
+                </div>
+
+                <div class="oss-issue-ref">
+                    Branch <code style="color:var(--accent2);font-family:'DM Mono',monospace;font-size:0.72rem;">feat-bundle-llama-cpp-binaries</code>
+                    &nbsp;·&nbsp;
+                    Closes issues <a href="https://github.com/microsoft/LlamaFarm/issues/664" target="_blank">#664</a>
+                    &amp;
+                    <a href="https://github.com/microsoft/LlamaFarm/issues/583" target="_blank">#583</a>
+                </div>
+
+                <p class="oss-description">
+                    LlamaFarm downloads the llama.cpp binary at runtime during initial setup — breaking behind corporate firewalls, on flaky networks, and when GitHub's CDN returns 503s during version upgrades. This PR eliminates those failure modes by shipping the binary inside the release archive with a graceful cache → bundled → download fallback chain.
+                </p>
+
+                <ul class="oss-bullets">
+                    <li>Built Go resolver <code>cli/internal/llamabinary/BundledBinaryPath()</code> to check bundled platform binaries before falling back to network download</li>
+                    <li>Added Python mirror under <code>llamafarm_llama/_bundled/&lt;os&gt;-&lt;arch&gt;/</code> and CI staging for CLI, release, and PyApp workflows</li>
+                    <li>Created bundle staging and packaging scripts with retry logic, platform tarballs, and SHA-256 generation</li>
+                    <li>Implemented multi-platform CI validation proving the bundled path bypasses network download entirely</li>
+                </ul>
+
+                <div class="oss-tech">
+                    <span class="oss-tech-tag">Go</span>
+                    <span class="oss-tech-tag">Python</span>
+                    <span class="oss-tech-tag">GitHub Actions</span>
+                    <span class="oss-tech-tag">PyApp</span>
+                    <span class="oss-tech-tag">pytest-mock</span>
+                    <span class="oss-tech-tag">httptest</span>
+                    <span class="oss-tech-tag">Multi-platform CI</span>
+                </div>
+
+                <div class="oss-links">
+                    <a href="https://github.com/microsoft/LlamaFarm" target="_blank" class="project-link teal">↗ LlamaFarm Repo</a>
+                    <a href="https://github.com/microsoft/LlamaFarm/issues/664" target="_blank" class="project-link">Issue #664</a>
+                    <a href="https://github.com/microsoft/LlamaFarm/issues/583" target="_blank" class="project-link">Issue #583</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 <!-- CERTIFICATIONS -->
 <section id="certifications">
     <div class="container">
@@ -1170,6 +1475,10 @@
             <div class="cert-item fade-in">
                 <div class="cert-name">AWS Certified Solutions Architect – Associate</div>
                 <div class="cert-issuer">Amazon Web Services</div>
+            </div>
+            <div class="cert-item fade-in">
+                <div class="cert-name">Databricks Certified Generative AI Engineer – Associate</div>
+                <div class="cert-issuer">Databricks</div>
             </div>
             <div class="cert-item fade-in">
                 <div class="cert-name">Databricks Certified Data Engineer – Associate</div>
